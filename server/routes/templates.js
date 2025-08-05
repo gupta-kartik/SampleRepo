@@ -28,11 +28,13 @@ router.get('/', (req, res) => {
 router.get('/:type/:template', (req, res) => {
   const { type, template } = req.params;
   
-  res.json({ 
-    type, 
-    template, 
-    content: `Sample content for ${type}/${template}` 
-  });
+  const templateContent = getTemplateContent(type, template);
+  
+  if (!templateContent) {
+    return res.status(404).json({ error: 'Template not found' });
+  }
+  
+  res.json({ content: templateContent });
 });
 
 function getTemplateContent(type, template) {

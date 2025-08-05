@@ -15,24 +15,8 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, '../client/build')));
 
 // API Routes
-// app.use('/api/setup', setupRoutes);
-// app.use('/api/templates', templateRoutes);
-
-// Temporary simple setup endpoint for demo
-app.post('/api/setup', (req, res) => {
-  res.json({ 
-    message: 'Setup endpoint working', 
-    createdFiles: ['README.md', 'package.json'],
-    projectPath: '/tmp/demo-project'
-  });
-});
-
-app.get('/api/templates', (req, res) => {
-  res.json({ 
-    monorepo: ['README template', 'Package.json'],
-    'new-repo': ['Repository template', 'CI/CD workflows']
-  });
-});
+app.use('/api/setup', setupRoutes);
+app.use('/api/templates', templateRoutes);
 
 // Health check endpoint
 app.get('/api/health', (req, res) => {
