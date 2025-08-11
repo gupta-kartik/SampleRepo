@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Template Generator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Login Page Template Generator</h1>
+            <p>Select a login template, preview it, and generate the code for your project</p>
+        </header>
+
+        <main>
+            <div class="template-selector">
+                <h2>Choose a Template</h2>
+                <div class="template-grid">
+                    <div class="template-card" data-template="modern">
+                        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjE1MCIgdmlld0JveD0iMCAwIDIwMCAxNTAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIyMDAiIGhlaWdodD0iMTUwIiBmaWxsPSIjZjhmOWZhIi8+CjxyZWN0IHg9IjUwIiB5PSI0MCIgd2lkdGg9IjEwMCIgaGVpZ2h0PSI3MCIgcng9IjgiIGZpbGw9IndoaXRlIiBzdHJva2U9IiNlNWU3ZWIiLz4KPGC2lyY2xlIGN4PSIxMDAiIGN5PSI2MCIgcj0iOCIgZmlsbD0iIzM5OGJkOCIvPgo8cmVjdCB4PSI2MCIgeT0iNzUiIHdpZHRoPSI4MCIgaGVpZ2h0PSI4IiByeD0iNCIgZmlsbD0iI2Y5ZmFmYiIvPgo8cmVjdCB4PSI2MCIgeT0iODgiIHdpZHRoPSI4MCIgaGVpZ2h0PSI4IiByeD0iNCIgZmlsbD0iI2Y5ZmFmYiIvPgo8cmVjdCB4PSI2MCIgeT0iMTAyIiB3aWR0aD0iNDAiIGhlaWdodD0iMTIiIHJ4PSI2IiBmaWxsPSIjMzk4YmQ4Ii8+Cjwvc3ZnPgo=" alt="Modern Template Preview">
+                        <h3>Modern</h3>
+                        <p>Clean, minimalist design with smooth animations</p>
+                        <button class="btn-preview" onclick="showPreview('modern')">Preview</button>
+                    </div>
+
+                    <div class="template-card" data-template="classic">
+                        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjE1MCIgdmlld0JveD0iMCAwIDIwMCAxNTAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIyMDAiIGhlaWdodD0iMTUwIiBmaWxsPSIjZjNmNGY2Ii8+CjxyZWN0IHg9IjQwIiB5PSIzMCIgd2lkdGg9IjEyMCIgaGVpZ2h0PSI5MCIgZmlsbD0id2hpdGUiIHN0cm9rZT0iI2Q1ZDZkOCIgc3Ryb2tlLXdpZHRoPSIyIi8+Cjx0ZXh0IHg9IjEwMCIgeT0iNTAiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNCIgZmlsbD0iIzM3NDE1MSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+TG9naW48L3RleHQ+CjxyZWN0IHg9IjUwIiB5PSI2NSIgd2lkdGg9IjEwMCIgaGVpZ2h0PSIxMiIgZmlsbD0iI2Y5ZmFmYiIgc3Ryb2tlPSIjZDVkNmQ4Ii8+CjxyZWN0IHg9IjUwIiB5PSI4MiIgd2lkdGg9IjEwMCIgaGVpZ2h0PSIxMiIgZmlsbD0iI2Y5ZmFmYiIgc3Ryb2tlPSIjZDVkNmQ4Ii8+CjxyZWN0IHg9IjUwIiB5PSIxMDAiIHdpZHRoPSI1MCIgaGVpZ2h0PSIxNSIgZmlsbD0iIzQ3NzNkOCIvPgo8L3N2Zz4K" alt="Classic Template Preview">
+                        <h3>Classic</h3>
+                        <p>Traditional corporate style with border design</p>
+                        <button class="btn-preview" onclick="showPreview('classic')">Preview</button>
+                    </div>
+
+                    <div class="template-card" data-template="gradient">
+                        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjE1MCIgdmlld0JveD0iMCAwIDIwMCAxNTAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxkZWZzPgo8bGluZWFyR3JhZGllbnQgaWQ9ImdyYWQiIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPgo8c3RvcCBvZmZzZXQ9IjAlIiBzdHlsZT0ic3RvcC1jb2xvcjojNjM2NmYxO3N0b3Atb3BhY2l0eToxIiAvPgo8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0eWxlPSJzdG9wLWNvbG9yOiM4YjVjZjY7c3RvcC1vcGFjaXR5OjEiIC8+CjwvbGluZWFyR3JhZGllbnQ+CjwvZGVmcz4KPHJlY3Qgd2lkdGg9IjIwMCIgaGVpZ2h0PSIxNTAiIGZpbGw9InVybCgjZ3JhZCkiLz4KPHJlY3QgeD0iNTAiIHk9IjQwIiB3aWR0aD0iMTAwIiBoZWlnaHQ9IjcwIiByeD0iMTIiIGZpbGw9IndoaXRlIiBmaWxsLW9wYWNpdHk9IjAuOSIvPgo8Y2lyY2xlIGN4PSIxMDAiIGN5PSI2MCIgcj0iMTAiIGZpbGw9IiM2MzY2ZjEiLz4KPHJlY3QgeD0iNjAiIHk9Ijc1IiB3aWR0aD0iODAiIGhlaWdodD0iOCIgcng9IjQiIGZpbGw9IiNmM2Y0ZjYiLz4KPHJlY3QgeD0iNjAiIHk9Ijg4IiB3aWR0aD0iODAiIGhlaWdodD0iOCIgcng9IjQiIGZpbGw9IiNmM2Y0ZjYiLz4KPHJlY3QgeD0iNjAiIHk9IjEwMiIgd2lkdGg9IjgwIiBoZWlnaHQ9IjEyIiByeD0iNiIgZmlsbD0iIzYzNjZmMSIvPgo8L3N2Zz4K" alt="Gradient Template Preview">
+                        <h3>Gradient</h3>
+                        <p>Eye-catching gradient background with glassmorphism</p>
+                        <button class="btn-preview" onclick="showPreview('gradient')">Preview</button>
+                    </div>
+
+                    <div class="template-card" data-template="dark">
+                        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjE1MCIgdmlld0JveD0iMCAwIDIwMCAxNTAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIyMDAiIGhlaWdodD0iMTUwIiBmaWxsPSIjMWExYTFhIi8+CjxyZWN0IHg9IjUwIiB5PSI0MCIgd2lkdGg9IjEwMCIgaGVpZ2h0PSI3MCIgcng9IjgiIGZpbGw9IiMyZDJkMmQiIHN0cm9rZT0iIzM3Mzc0YSIvPgo8Y2lyY2xlIGN4PSIxMDAiIGN5PSI2MCIgcj0iOCIgZmlsbD0iIzEwYjk4MSIvPgo8cmVjdCB4PSI2MCIgeT0iNzUiIHdpZHRoPSI4MCIgaGVpZ2h0PSI4IiByeD0iNCIgZmlsbD0iIzM3Mzc0YSIvPgo8cmVjdCB4PSI2MCIgeT0iODgiIHdpZHRoPSI4MCIgaGVpZ2h0PSI4IiByeD0iNCIgZmlsbD0iIzM3Mzc0YSIvPgo8cmVjdCB4PSI2MCIgeT0iMTAyIiB3aWR0aD0iNDAiIGhlaWdodD0iMTIiIHJ4PSI2IiBmaWxsPSIjMTBiOTgxIi8+Cjwvc3ZnPgo=" alt="Dark Template Preview">
+                        <h3>Dark Mode</h3>
+                        <p>Modern dark theme with subtle accents</p>
+                        <button class="btn-preview" onclick="showPreview('dark')">Preview</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="preview-section" id="previewSection">
+                <h2>Template Preview</h2>
+                <div class="preview-container">
+                    <div class="preview-frame" id="previewFrame">
+                        <p>Select a template to see the preview</p>
+                    </div>
+                </div>
+                <div class="preview-actions">
+                    <button class="btn-generate" id="generateBtn" onclick="generateCode()" disabled>Generate Code</button>
+                </div>
+            </div>
+
+            <div class="code-section" id="codeSection" style="display: none;">
+                <h2>Generated Code</h2>
+                <div class="code-tabs">
+                    <button class="tab-btn active" onclick="showTab('html')">HTML</button>
+                    <button class="tab-btn" onclick="showTab('css')">CSS</button>
+                </div>
+                <div class="code-container">
+                    <pre><code id="codeOutput"></code></pre>
+                    <button class="btn-copy" onclick="copyCode()">Copy Code</button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
